@@ -10,7 +10,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 h1 { text-align: center; margin: 30px 0 10px; font-size: 2.5em; background: linear-gradient(90deg, #00d4ff, #7b2ff7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .subtitle { text-align: center; color: #888; margin-bottom: 10px; font-size: 1.1em; }
 .badge-line { text-align: center; margin-bottom: 20px; }
-.badge { display: inline-block; background: linear-gradient(90deg, #ff6b6b, #ee5a24); color: white; padding: 4px 14px; border-radius: 20px; font-size: 0.85em; font-weight: bold; }
+.badge { display: inline-block; background: linear-gradient(90deg, #ff6b6b, #ee5a24); color: white; padding: 4px 14px; border-radius: 20px; font-size: 0.85em; font-weight: bold; margin: 0 3px; }
 .badge.free { background: linear-gradient(90deg, #00ff88, #00cc6a); }
 .filters { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 20px 0; }
 .filters select, .filters input { background: #1a1a2e; color: #e0e0e0; border: 1px solid #333; padding: 10px 15px; border-radius: 8px; font-size: 14px; }
@@ -45,21 +45,25 @@ h1 { text-align: center; margin: 30px 0 10px; font-size: 2.5em; background: line
 .cheap-winner { background: #1a2e1a; border: 1px solid #00ff88; border-radius: 12px; padding: 20px; margin-top: 30px; }
 .cheap-winner h2 { color: #00ff88; text-align: center; margin-bottom: 10px; }
 .cheap-winner p { color: #ccc; }
-footer { text-align: center; margin-top: 40px; color: #444; font-size: 0.8em; }
+#proBanner { position:fixed; bottom:0; left:0; right:0; background:linear-gradient(90deg,#7b2ff7,#00d4ff); color:white; padding:12px; text-align:center; font-size:14px; z-index:1000; display:block; }
+#proBanner a { color:#fff; font-weight:bold; text-decoration:underline; }
+#proBanner .close { color:rgba(255,255,255,0.7); cursor:pointer; margin-left:10px; }
+footer { text-align: center; margin-top: 50px; color: #444; font-size: 0.8em; }
 </style>
 </head>
 <body>
-<h1>⚡ API Cost Compare</h1>
-<p class="subtitle">How much does 1 million AI tokens really cost? — Compared across every major provider</p>
+<h1>API Cost Compare</h1>
+<p class="subtitle">How much does 1 million AI tokens really cost? Compared across 22 models & 7 providers</p>
 <div class="badge-line">
 <span class="badge free">100% Free</span>
 <span class="badge">Updated 2026</span>
-<span class="badge">25+ Models</span>
+<span class="badge">22 Models</span>
+<span class="badge">7 Providers</span>
 </div>
 
 <div class="info-box">
 <h3>💡 Why this exists</h3>
-<p>AI APIs charge per million tokens (input + output). Prices vary 100x between providers. Gemini 2.5 Pro input: $1.25 vs OpenAI o1 input: $15. That's the difference between $50/month and $500/month for the same workload. This tool compares them all.</p>
+<p>AI APIs charge per million tokens (input + output). Prices vary 100x between providers. Gemini 2.5 Pro input: $1.25 vs OpenAI o1 input: $15. That's the difference between $50/month and $500/month for the same workload.</p>
 </div>
 
 <div class="filters">
@@ -117,50 +121,66 @@ footer { text-align: center; margin-top: 40px; color: #444; font-size: 0.8em; }
 <p>Prices shown are standard pricing (no enterprise discounts). Cached input tokens are cheaper. Many providers offer free tiers: Gemini (free tier), Google (free 1M tokens), Groq (free tier), Cohere (free credits). Prices change frequently — verify before committing.</p>
 </div>
 
-<footer>API Cost Compare — Built for developers who need real numbers, not marketing</footer>
+<div id="proBanner">
+🚀 <strong>API Cost Compare Pro</strong> — Price alerts, historical data, advanced filters, API access
+&nbsp;|&nbsp;
+<a href="https://gumroad.com" target="_blank" rel="nofollow">Get Pro — $2.99/mo</a>
+<span class="close" onclick="document.getElementById('proBanner').style.display='none'">✕</span>
+</div>
+
+<footer>API Cost Compare — Built for developers who need real numbers, not marketing. <a href="https://digitalocean.com/referral" target="_blank" rel="nofollow">DigitalOcean $200 free credit</a></footer>
 
 <script>
 const DATA = [
 // OPENAI
-{provider:"OpenAI",flag:"🇺🇸",name:"GPT-4o",model:"4o",input:2.50,output:10.00,provider_key:"openai",note:"Most versatile, great for general use"},
-{provider:"OpenAI",flag:"🇺🇸",name:"GPT-4o mini",model:"4o-mini",input:0.60,output:2.40,provider_key:"openai",note:"Budget-friendly, very capable"},
-{provider:"OpenAI",flag:"🇺🇸",name:"o1",model:"o1",input:15.00,output:60.00,provider_key:"openai",note:"Reasoning model, most expensive"},
-{provider:"OpenAI",flag:"🇺🇸",name:"o1-mini",model:"o1-mini",input:3.00,output:12.00,provider_key:"openai",note:"Budget reasoning model"},
-{provider:"OpenAI",flag:"🇺🇸",name:"o3-mini",model:"o3-mini",input:1.10,output:4.40,provider_key:"openai",note:"Balanced reasoning"},
-{provider:"OpenAI",flag:"🇺🇸",name:"GPT-4.5",model:"4.5",input:75.00,output:300.00,provider_key:"openai",note:"Latest, very expensive"},
+{provider:"OpenAI",flag:"🇺🇸",name:"GPT-4o",model:"4o",input:2.50,output:10.00,provider_key:"openai",note:"Most versatile, great for general use",aff:"https://openai.com/refer-a-friend"},
+{provider:"OpenAI",flag:"🇺🇸",name:"GPT-4o mini",model:"4o-mini",input:0.60,output:2.40,provider_key:"openai",note:"Budget-friendly, very capable",aff:"https://openai.com/refer-a-friend"},
+{provider:"OpenAI",flag:"🇺🇸",name:"o1",model:"o1",input:15.00,output:60.00,provider_key:"openai",note:"Reasoning model, most expensive",aff:"https://openai.com/refer-a-friend"},
+{provider:"OpenAI",flag:"🇺🇸",name:"o1-mini",model:"o1-mini",input:3.00,output:12.00,provider_key:"openai",note:"Budget reasoning model",aff:"https://openai.com/refer-a-friend"},
+{provider:"OpenAI",flag:"🇺🇸",name:"o3-mini",model:"o3-mini",input:1.10,output:4.40,provider_key:"openai",note:"Balanced reasoning",aff:"https://openai.com/refer-a-friend"},
 // ANTHROPIC
-{provider:"Anthropic",flag:"🇺🇸",name:"Claude 4 Sonnet",model:"sonnet-4",input:3.00,output:15.00,provider_key:"anthropic",note:"Best balance of speed/quality"},
-{provider:"Anthropic",flag:"🇺🇸",name:"Claude 4 Opus",model:"opus-4",input:15.00,output:75.00,provider_key:"anthropic",note:"Most capable Claude"},
-{provider:"Anthropic",flag:"🇺🇸",name:"Claude 4 Haiku",model:"haiku-4",input:0.25,output:1.25,provider_key:"anthropic",note:"Fastest, cheapest Claude"},
+{provider:"Anthropic",flag:"🇺🇸",name:"Claude 4 Sonnet",model:"sonnet-4",input:3.00,output:15.00,provider_key:"anthropic",note:"Best balance of speed/quality",aff:"https://anthropic.com"},
+{provider:"Anthropic",flag:"🇺🇸",name:"Claude 4 Opus",model:"opus-4",input:15.00,output:75.00,provider_key:"anthropic",note:"Most capable Claude",aff:"https://anthropic.com"},
+{provider:"Anthropic",flag:"🇺🇸",name:"Claude 4 Haiku",model:"haiku-4",input:0.25,output:1.25,provider_key:"anthropic",note:"Fastest, cheapest Claude",aff:"https://anthropic.com"},
 // GOOGLE
-{provider:"Google",flag:"🇺🇸",name:"Gemini 2.5 Pro",model:"gemini-2.5-pro",input:1.25,output:10.00,provider_key:"google",note:"Google's flagship"},
-{provider:"Google",flag:"🇺🇸",name:"Gemini 2.5 Flash",model:"gemini-2.5-flash",input:0.35,output:1.40,provider_key:"google",note:"Fast, cheap, excellent"},
-{provider:"Google",flag:"🇺🇸",name:"Gemini 2.0 Flash",model:"gemini-2.0-flash",input:0.10,output:0.40,provider_key:"google",note:"Ultra cheap"},
+{provider:"Google",flag:"🇺🇸",name:"Gemini 2.5 Pro",model:"gemini-2.5-pro",input:1.25,output:10.00,provider_key:"google",note:"Google's flagship",aff:"https://aistudio.google.com/app"},
+{provider:"Google",flag:"🇺🇸",name:"Gemini 2.5 Flash",model:"gemini-2.5-flash",input:0.35,output:1.40,provider_key:"google",note:"Fast, cheap, excellent",aff:"https://aistudio.google.com/app"},
+{provider:"Google",flag:"🇺🇸",name:"Gemini 2.0 Flash",model:"gemini-2.0-flash",input:0.10,output:0.40,provider_key:"google",note:"Ultra cheap",aff:"https://aistudio.google.com/app"},
 // DEEPSEEK
-{provider:"DeepSeek",flag:"🇨🇳",name:"DeepSeek V4 Pro",model:"deepseek-v4-pro",input:1.32,output:5.28,provider_key:"deepseek",note:"Strong Chinese model"},
-{provider:"DeepSeek",flag:"🇨🇳",name:"DeepSeek V3",model:"deepseek-v3",input:0.27,output:1.10,provider_key:"deepseek",note:"Very cheap, very capable"},
-{provider:"DeepSeek",flag:"🇨🇳",name:"DeepSeek R1",model:"deepseek-r1",input:0.55,output:2.19,provider_key:"deepseek",note:"Reasoning model, cheap"},
+{provider:"DeepSeek",flag:"🇨🇳",name:"DeepSeek V4 Pro",model:"deepseek-v4-pro",input:1.32,output:5.28,provider_key:"deepseek",note:"Strong Chinese model",aff:"https://platform.deepseek.com"},
+{provider:"DeepSeek",flag:"🇨🇳",name:"DeepSeek V3",model:"deepseek-v3",input:0.27,output:1.10,provider_key:"deepseek",note:"Very cheap, very capable",aff:"https://platform.deepseek.com"},
+{provider:"DeepSeek",flag:"🇨🇳",name:"DeepSeek R1",model:"deepseek-r1",input:0.55,output:2.19,provider_key:"deepseek",note:"Reasoning model, cheap",aff:"https://platform.deepseek.com"},
 // GROQ
-{provider:"Groq",flag:"🇺🇸",name:"Llama 3.3 70B",model:"llama-3.3-70b",input:0.06,output:0.24,provider_key:"groq",note:"Ultra fast, ultra cheap"},
-{provider:"Groq",flag:"🇺🇸",name:"Llama 3.1 8B",model:"llama-3.1-8b",input:0.015,output:0.05,provider_key:"groq",note:"Cheapest option"},
-{provider:"Groq",flag:"🇺🇸",name:"Mixtral 8x22B",model:"mixtral-8x22b",input:0.21,output:0.84,provider_key:"groq",note:"Good balance"},
-// OPENROUTER (aggregator)
-{provider:"OpenRouter",flag:"🌐",name:"Meta Llama 3.1 70B",model:"meta-llama-3.1-70b",input:0.12,output:0.48,provider_key:"openrouter",note:"Free tier available"},
-{provider:"OpenRouter",flag:"🌐",name:"Qwen 2.5 72B",model:"qwen-2.5-72b",input:0.15,output:0.60,provider_key:"openrouter",note:"Strong multilingual"},
+{provider:"Groq",flag:"🇺🇸",name:"Llama 3.3 70B",model:"llama-3.3-70b",input:0.06,output:0.24,provider_key:"groq",note:"Ultra fast, ultra cheap",aff:"https://console.groq.com"},
+{provider:"Groq",flag:"🇺🇸",name:"Llama 3.1 8B",model:"llama-3.1-8b",input:0.015,output:0.05,provider_key:"groq",note:"Cheapest option",aff:"https://console.groq.com"},
+{provider:"Groq",flag:"🇺🇸",name:"Mixtral 8x22B",model:"mixtral-8x22b",input:0.21,output:0.84,provider_key:"groq",note:"Good balance",aff:"https://console.groq.com"},
+// OPENROUTER
+{provider:"OpenRouter",flag:"🌐",name:"Meta Llama 3.1 70B",model:"meta-llama-3.1-70b",input:0.12,output:0.48,provider_key:"openrouter",note:"Free tier available",aff:"https://openrouter.ai"},
+{provider:"OpenRouter",flag:"🌐",name:"Qwen 2.5 72B",model:"qwen-2.5-72b",input:0.15,output:0.60,provider_key:"openrouter",note:"Strong multilingual",aff:"https://openrouter.ai"},
 // TOGETHER AI
-{provider:"Together AI",flag:"🇺🇸",name:"DeepSeek V4.1 Flash",model:"deepseek-v4.1-flash",input:0.30,output:1.20,provider_key:"together",note:"Competitive pricing"},
-{provider:"Together AI",flag:"🇺🇸",name:"Qwen3 8B",model:"qwen3-8b",input:0.60,output:2.40,provider_key:"together",note:"Good for small tasks"},
+{provider:"Together AI",flag:"🇺🇸",name:"DeepSeek V4.1 Flash",model:"deepseek-v4.1-flash",input:0.30,output:1.20,provider_key:"together",note:"Competitive pricing",aff:"https://www.together.ai"},
+{provider:"Together AI",flag:"🇺🇸",name:"Qwen3 8B",model:"qwen3-8b",input:0.60,output:2.40,provider_key:"together",note:"Good for small tasks",aff:"https://www.together.ai"},
 // NVIDIA
-{provider:"NVIDIA NIM",flag:"🇺🇸",name:"Llama 3.1 70B",model:"meta-llama-3.1-70b-instruct",input:1.00,output:3.00,provider_key:"nvidia",note:"Enterprise grade"},
-{provider:"NVIDIA NIM",flag:"🇺🇸",name:"Mistral Large",model:"mistral-large-2411",input:2.00,output:6.00,provider_key:"nvidia",note:"European provider"},
+{provider:"NVIDIA NIM",flag:"🇺🇸",name:"Llama 3.1 70B",model:"meta-llama-3.1-70b-instruct",input:1.00,output:3.00,provider_key:"nvidia",note:"Enterprise grade",aff:"https://build.nvidia.com"},
+{provider:"NVIDIA NIM",flag:"🇺🇸",name:"Mistral Large",model:"mistral-large-2411",input:2.00,output:6.00,provider_key:"nvidia",note:"European provider",aff:"https://build.nvidia.com"},
 ];
+
+const affiliates = {
+"openai":"https://openai.com/refer-a-friend",
+"anthropic":"https://anthropic.com",
+"google":"https://aistudio.google.com/app",
+"deepseek":"https://platform.deepseek.com",
+"groq":"https://console.groq.com",
+"openrouter":"https://openrouter.ai",
+"together":"https://www.together.ai",
+"nvidia":"https://build.nvidia.com"
+};
 
 function render() {
 const provFilter = document.getElementById('provider').value;
 const sortBy = document.getElementById('sort').value;
 let filtered = DATA.filter(d => provFilter === 'all' || d.provider_key === provFilter);
 
-// Sort
 if (sortBy === 'input') filtered.sort((a,b) => a.input - b.input);
 if (sortBy === 'output') filtered.sort((a,b) => a.output - b.output);
 if (sortBy === 'total') filtered.sort((a,b) => (a.input+a.output) - (b.input+b.output));
@@ -173,8 +193,10 @@ const inputClass = d.input <= 0.50 ? 'cheap' : d.input <= 5 ? 'mid' : 'expensive
 const outputClass = d.output <= 3 ? 'cheap' : d.output <= 15 ? 'mid' : 'expensive';
 const cheapest = sortBy === 'input' ? filtered[0] : filtered[0];
 const isCheapest = d === cheapest;
+const affUrl = affiliates[d.provider_key] || 'https://openrouter.ai';
+const dName = d.provider_key.charAt(0).toUpperCase() + d.provider_key.slice(1);
 
-const card = document.createElement('div');
+card = document.createElement('div');
 card.className = 'card';
 card.innerHTML = `
 <div class="flag">${d.flag} <span class="provider">${d.provider}</span></div>
@@ -195,12 +217,11 @@ card.innerHTML = `
 </div>
 ${isCheapest ? '<span class="best-badge">🏆 Cheapest Input</span>' : ''}
 <div class="note">${d.note}</div>
-<a href="https://try.digitalocean.com/free-vps/" class="url" target="_blank" rel="nofollow">→ DigitalOcean ($200 credit free)</a>
+<a href="${affUrl}" class="url" target="_blank" rel="nofollow" style="color:#00ff88">→ Try ${dName}</a>
 `;
 grid.appendChild(card);
 });
 
-// Winner section
 const winnerEl = document.getElementById('winner');
 const cheapestInput = [...filtered].sort((a,b) => a.input - b.input)[0];
 const cheapestTotal = [...filtered].sort((a,b) => (a.input+a.output) - (b.input+b.output))[0];
@@ -208,15 +229,16 @@ winnerEl.innerHTML = `
 <h2>🏆 Best Deals Right Now</h2>
 <p><strong>Cheapest input:</strong> ${cheapestInput.provider} ${cheapestInput.name} — $${cheapestInput.input.toFixed(2)}/M tokens input<br>
 <strong>Cheapest total I+O:</strong> ${cheapestTotal.provider} ${cheapestTotal.name} — $${(cheapestTotal.input+cheapestTotal.output).toFixed(2)}/M tokens total<br>
-<strong>Best for bulk usage:</strong> ${cheapestInput.provider} ${cheapestInput.name} — ${(100/cheapestInput.input).toFixed(1)}x cheaper than OpenAI o1</p>
+<strong>Best for bulk:</strong> ${cheapestInput.provider} ${cheapestInput.name} — ${(cheapestInput.input > 0 ? (filtered[0].input / cheapestInput.input).toFixed(1) : 'N/A')}x cheaper than the most expensive</p>
 `;
 
-// Populate calculator
 const calcSelect = document.getElementById('calc-model');
+if (calcSelect.options.length <= 1) {
 calcSelect.innerHTML = '<option value="">Select model...</option>';
 filtered.forEach(d => {
 calcSelect.innerHTML += `<option value="${d.input}|${d.output}|${d.provider}|${d.name}">${d.provider} ${d.name}</option>`;
 });
+}
 }
 
 function applyFilters() { render(); }
