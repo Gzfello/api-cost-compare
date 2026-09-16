@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Groq vs DeepSeek vs Gemini: cheapest AI APIs for developers with benchmarks and pricing.">
+<title>Groq vs DeepSeek vs Gemini: Cheapest AI APIs for Developers</title>
+<style>
+body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #0a0a0f; color: #e0e0e0; }
+h1 { color: #00d4ff; } h2 { color: #7b2ff7; } table { width: 100%; border-collapse: collapse; margin: 20px 0; } th, td { padding: 12px; text-align: left; border-bottom: 1px solid #2a2a3e; } th { color: #00d4ff; } .cheap { color: #00ff88; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Groq vs DeepSeek vs Gemini: Cheapest AI APIs for Developers</h1>
+<p>Three budget providers. Dramatically different pricing. Which one should you use?</p>
+
+<h2>Quick comparison</h2>
+<table>
+<tr><th>Provider</th><th>Best model</th><th>Input/M tokens</th><th>Output/M tokens</th><th>Speed</th><th>Quality</th></tr>
+<tr><td>Groq</td><td>Llama 3.1 8B</td><td class="cheap">$0.015</td><td>$0.05</td><td>654 tokens/sec</td><td>6/10</td></tr>
+<tr><td>DeepSeek</td><td>V3</td><td class="cheap">$0.27</td><td>$1.10</td><td>50 tokens/sec</td><td>9/10</td></tr>
+<tr><td>Google</td><td>Gemini 2.0 Flash</td><td class="cheap">$0.10</td><td class="cheap">$0.40</td><td>250 tokens/sec</td><td>7/10</td></tr>
+</table>
+
+<h2>Deep dive: Groq</h2>
+<h2>Pros:</h2>
+<ul>
+<li>Cheapest per token by far</li>
+<li>Fastest inference (654 tokens/sec on Llama 3.1)</li>
+<li>Simple API, OpenAI-compatible</li>
+<li>Free tier available</li>
+</ul>
+<h2>Cons:</h2>
+<ul>
+<li>Llama 3.1 8B: limited reasoning</li>
+<li>No multimodal input</li>
+<li>Smaller context window</li>
+<li>Less ecosystem tooling</li>
+</ul>
+
+<h2>Deep dive: DeepSeek</h2>
+<h2>Pros:</h2>
+<ul>
+<li>Best capability per dollar</li>
+<li>Strong reasoning (DeepSeek R1)</li>
+<li>Open weights</li>
+<li>Large context windows</li>
+</ul>
+<h2>Cons:</h2>
+<ul>
+<li>Chinese provider (privacy considerations)</li>
+<li>Slower than Groq/Gemini</li>
+<li>Limited free tier</li>
+<li>Access can be inconsistent</li>
+</ul>
+
+<h2>Deep dive: Gemini</h2>
+<h2>Pros:</h2>
+<ul>
+<li>Great balance of price + quality</li>
+<li>Multimodal (text, image, audio)</li>
+<li>Google ecosystem integration</li>
+<li>Generous free tier</li>
+</ul>
+<h2>Cons:</h2>
+<ul>
+<li>Rate limits on free tier</li>
+<li>Prices going up in 2027</li>
+<li>Privacy: Google data collection</li>
+</ul>
+
+<h2>When to use which</h2>
+<table>
+<tr><th>Use case</th><th>Best choice</th><th>Why</th></tr>
+<tr><td>Prototype/MVP</td><td>Groq</td><td>Cheapest to start</td></tr>
+<tr><td>Production app</td><td>Gemini 2.0 Flash</td><td>Price + quality</td></tr>
+<tr><td>Complex reasoning</td><td>DeepSeek R1</td><td>Best value for reasoning</td></tr>
+<tr><td>High volume</td><td>Groq</td><td>$1.50/month at 100M tokens</td></tr>
+<tr><td>Image/audio</td><td>Gemini</td><td>Only multimodal of the 3</td></tr>
+</table>
+
+<p>Compare all models: <a href="https://Gzfello.github.io/api-cost-compare/">API Cost Compare -></a></p>
+</body>
+</html>
