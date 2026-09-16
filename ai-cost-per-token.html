@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How much does AI cost per token? Complete guide for developers.">
+<title>How Much Does AI Cost Per Token? - Complete Guide</title>
+<style>
+body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #0a0a0f; color: #e0e0e0; }
+h1 { color: #00d4ff; } h2 { color: #7b2ff7; } table { width: 100%; border-collapse: collapse; margin: 20px 0; } th, td { padding: 12px; text-align: left; border-bottom: 1px solid #2a2a3e; } .cheap { color: #00ff88; } .expensive { color: #ff6b6b; }
+</style>
+</head>
+<body>
+<h1>How Much Does AI Cost Per Token? Complete Guide</h1>
+<p>Understanding AI API pricing is essential for any developer. This guide explains everything you need to know.</p>
+
+<h2>What is a token?</h2>
+<p>A token is a chunk of text used to measure AI API usage. Roughly:</p>
+<ul>
+<li>1 token = approximately 0.75 words in English</li>
+<li>1 token = approximately 4 characters</li>
+<li>1,000 words = approximately 1,300 tokens</li>
+<li>1 page of text = approximately 1,300-2,600 tokens</li>
+</ul>
+
+<h2>How are APIs charged?</h2>
+<p>Most AI APIs charge per <strong>1 million tokens</strong>. You pay separately for:</p>
+<ul>
+<li><strong>Input tokens</strong>: text you send to the model (your prompt)</li>
+<li><strong>Output tokens</strong>: text the model generates (its response)</li>
+<li><strong>Cached tokens</strong>: repeated context (much cheaper, ~10x discount)</li>
+</ul>
+
+<h2>Why do prices vary so much?</h2>
+<p>Prices range from $0.015 to $300 per million tokens (input). Factors:</p>
+<ul>
+<li>Model complexity (8B parameters vs 1T parameters)</li>
+<li>Infrastructure (CPU vs GPU vs custom chips)</li>
+<li>Market positioning (budget vs premium)</li>
+<li>Region (some providers have regional pricing)</li>
+</ul>
+
+<h2>Real cost examples</h2>
+<h2>Chat with 1M tokens total:</h2>
+<table>
+<tr><th>Provider</th><th>Model</th><th>Cost</th></tr>
+<tr><td>Groq</td><td>Llama 3.1 8B</td><td class="cheap">$0.020</td></tr>
+<tr><td>DeepSeek</td><td>V3</td><td class="cheap">$1.37</td></tr>
+<tr><td>Google</td><td>Gemini 2.0 Flash</td><td>$0.50</td></tr>
+<tr><td>OpenAI</td><td>GPT-4o</td><td>$12.50</td></tr>
+<tr><td>OpenAI</td><td>o1</td><td class="expensive">$75.00</td></tr>
+</table>
+
+<h2>Monthly usage: 100M tokens (typical app):</h2>
+<table>
+<tr><th>Provider</th><th>Monthly cost</th><th>Annual cost</th></tr>
+<tr><td>Groq</td><td class="cheap">$1.50</td><td class="cheap">$18.00</td></tr>
+<tr><td>DeepSeek</td><td>$137.00</td><td>$1,644.00</td></tr>
+<tr><td>OpenAI</td><td>$1,250.00</td><td>$15,000.00</td></tr>
+</table>
+
+<h2>How to save money</h2>
+<ol>
+<li><strong>Use cheaper models when possible:</strong> GPT-4o mini instead of GPT-4o saves 76%</li>
+<li><strong>Use caching:</strong> If you send the same context repeatedly, cached tokens cost 10x less</li>
+<li><strong>Batch requests:</strong> More tokens per request = better efficiency</li>
+<li><strong>Compare providers:</strong> Use <a href="https://Gzfello.github.io/api-cost-compare/">API Cost Compare -</a></li>
+<li><strong>Start with budget models:</strong> Test with Groq/DeepSeek, upgrade only when needed</li>
+</ol>
+
+<h2>Free tiers available</h2>
+<ul>
+<li><strong>Gemini:</strong> Free tier with 1M tokens/month</li>
+<li><strong>Groq:</strong> Free tier available</li>
+<li><strong>Cohere:</strong> Free credits for new accounts</li>
+<li><strong>Google AI Studio:</strong> Free quota per minute</li>
+</ul>
+
+<p>Source: <a href="https://Gzfello.github.io/api-cost-compare/">API Cost Compare</a></p>
+</body>
+</html>
